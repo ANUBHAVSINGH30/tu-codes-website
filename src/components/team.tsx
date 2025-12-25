@@ -15,7 +15,7 @@ export default function Team() {
             },
         },
         {
-            name: "Shujan Mashuk Islam",
+            name: "Shujan Mashuq Islam",
             role: "Development Lead",
             quote: "Innovation distinguishes leaders from followers",
             image: "/team/member2.jpg",
