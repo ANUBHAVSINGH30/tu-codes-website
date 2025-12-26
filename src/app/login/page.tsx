@@ -96,10 +96,6 @@ const handleSignUp = async () => {
                 Forgot Password?
               </a>
             </div>
-
-            <Button type="button" onClick={handleSignUp} variant="outline" className="shadow-md w-full">
-              Sign Up
-            </Button>
             <Button type="button" onClick={handleSignIn} variant="outline" className="shadow-md w-full">
               Sign In 
             </Button>
@@ -112,14 +108,12 @@ const handleSignUp = async () => {
             <div className="relative flex justify-center text-sm">
               <span className="px-4 bg-card text-muted-foreground">Or continue with</span>
             </div>
+
           </div>
 
-          <div className="grid grid-cols-1 gap-4">
-            <Button variant="outline" className="bg-card rounded-xl">
-              <OctagonAlert/>
-              Google
+            <Button type="button" onClick={handleSignUp} variant="outline" className="shadow-md w-full">
+              Sign Up
             </Button>
-          </div>
         </div>
       </div>
     </div>
