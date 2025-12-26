@@ -5,15 +5,25 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Eye, EyeOff, Mail, Lock, OctagonAlert } from "lucide-react";
+import { createSupabaseBrowser } from "../../../lib/supabase/client";
+// import { GoogleButton } from '../../components/ui/google-signup-button';
 
 function LoginPage() {
+  const supabase =  createSupabaseBrowser();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Login attempt:", { email, password });
+const handleSignUp = async () => {
+    const { error } = await supabase.auth.signUp({ email, password });
+    if (error) alert(error.message);
+    else alert("Signed up! Check email if confirmation is enabled.");
+  };
+
+  const handleSignIn = async () => {
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) alert(error.message);
+    else alert("Signed up successfully") // or router.push("/")
   };
 
   return (
@@ -32,7 +42,7 @@ function LoginPage() {
             <h1 className="text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
             <p className="text-muted-foreground">Sign in to your Account</p>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-foreground font-medium">
                 Email Address
@@ -44,7 +54,7 @@ function LoginPage() {
                   type="email"
                   placeholder="hello@example.com"
                   value={email}
-                  onChange={(e:  React.FormEvent<HTMLFormElement>) => setEmail(e.currentTarget.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="pl-12"
                 />
               </div>
@@ -61,7 +71,7 @@ function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e:  React.FormEvent<HTMLFormElement>) => setPassword(e.currentTarget.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="pl-12 pr-12"
                 />
                 <Button
@@ -87,8 +97,11 @@ function LoginPage() {
               </a>
             </div>
 
-            <Button type="submit" size="lg" className="w-full rounded-xl">
-              Sign In
+            <Button type="button" onClick={handleSignUp} variant="outline" className="shadow-md w-full">
+              Sign Up
+            </Button>
+            <Button type="button" onClick={handleSignIn} variant="outline" className="shadow-md w-full">
+              Sign In 
             </Button>
           </form>
 
@@ -107,13 +120,6 @@ function LoginPage() {
               Google
             </Button>
           </div>
-
-          <p className="text-center mt-8 text-muted-foreground">
-            Don't have an account?{" "}
-            <a href="/register" className="text-foreground font-semibold hover:underline transition-colors">
-              Sign up
-            </a>
-          </p>
         </div>
       </div>
     </div>
