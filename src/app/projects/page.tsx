@@ -41,14 +41,6 @@ export default function ProjectsPage() {
       <section className="bg-white py-16 md:py-20 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Decorative dots */}
-            <div className="flex justify-center gap-3 mb-8">
-              <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Our{" "}
@@ -56,17 +48,6 @@ export default function ProjectsPage() {
                 Projects
               </span>
             </h1>
-
-            {/* Subheading */}
-            <p className="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed">
-              Innovative solutions built by our community
-            </p>
-
-            {/* Description */}
-            <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
-              Explore amazing projects created by TU Codes members. From web apps to AI solutions,
-              our community is building the future of technology.
-            </p>
 
             {/* Stats Card */}
             <div className="inline-block">
