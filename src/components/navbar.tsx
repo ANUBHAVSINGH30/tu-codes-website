@@ -59,7 +59,7 @@ export default function Navbar() {
             </Link>
             {/* Join Us Button */}
             <Link
-              href="/login"
+              href="/signin"
               className="bg-gradient-to-r from-blue-400 to-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all hover:shadow-lg hover:scale-105"
             >
               Join Us
